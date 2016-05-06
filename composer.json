@@ -8,7 +8,7 @@
     {"name": "Pieter Hordijk"}
   ],
   "autoload": {
-    "psr-4": {"Room11\\OpenID\\": "src/"}
+    "psr-4": {"Room11\\OpenId\\": "src/"}
   },
   "require": {
     "room11/dom-utils": "~1.0",
