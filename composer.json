@@ -13,5 +13,8 @@
   "require": {
     "room11/dom-utils": "~1.0",
     "amphp/artax": "^2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.3.*"
   }
 }
