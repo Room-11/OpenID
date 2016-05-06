@@ -1,0 +1,17 @@
+{
+  "name": "room11/openid",
+  "description": "OpenID consumer",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {"name": "Chris Wright"},
+    {"name": "Pieter Hordijk"}
+  ],
+  "autoload": {
+    "psr-4": {"Room11\\OpenID\\": "src/"}
+  },
+  "require": {
+    "room11/dom-utils": "~1.0",
+    "amphp/artax": "^2"
+  }
+}
