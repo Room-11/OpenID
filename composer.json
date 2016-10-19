@@ -11,7 +11,7 @@
     "psr-4": {"Room11\\OpenId\\": "src/"}
   },
   "require": {
-    "room11/dom-utils": "~1.0",
+    "room11/dom-utils": "~1.1",
     "amphp/artax": "^2"
   },
   "require-dev": {
