@@ -4,5 +4,5 @@ namespace Room11\OpenId;
 
 interface Authenticator
 {
-    public function logIn(string $url, Credentials $credentials): \Generator;
+    public function logIn(string $url, Credentials $credentials);
 }

@@ -7,6 +7,7 @@ use Amp\Artax\HttpClient;
 use Amp\Artax\Request as HttpRequest;
 use Amp\Artax\Response as HttpResponse;
 use function Room11\DOMUtils\domdocument_load_html;
+use Room11\DOMUtils\LibXMLFatalErrorException;
 
 class StackExchangeAuthenticator implements Authenticator
 {
@@ -19,14 +20,19 @@ class StackExchangeAuthenticator implements Authenticator
         $this->uriFactory = $uriFactory;
     }
 
-    public function logIn(string $url, Credentials $credentials): \Generator
+    public function logIn(string $url, Credentials $credentials)
     {
         /** @var HttpResponse $response */
         $response = yield $this->httpClient->request($url);
 
         $startUrl = $response->getRequest()->getUri();
 
-        $doc = domdocument_load_html($response->getBody());
+        try {
+            $doc = domdocument_load_html($response->getBody());
+        } catch (LibXMLFatalErrorException $e) {
+            throw new FailedAuthenticationException('Parsing response body as HTML failed', $e->getCode(), $e);
+        }
+
         $xpath = new \DOMXPath($doc);
 
         $loginForm = $this->getLoginForm($doc);
